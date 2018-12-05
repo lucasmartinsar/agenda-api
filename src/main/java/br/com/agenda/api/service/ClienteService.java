@@ -47,14 +47,20 @@ public class ClienteService {
 		this.rep.saveAndFlush(cliente);
 	}
 	
+	
 	@Transactional(readOnly=true)
 	public Cliente buscarPorNome (String nome) {
 		return this.rep.findByNome(nome);
 	}
 	
+	@Transactional(readOnly=true)
 	public Cliente buscarPorEmail (String email) {
 		return this.rep.findByEmail(email);
 	}
 	
+	@Transactional(readOnly=true)
+	public Cliente buscaPorId (Long id) {
+		return this.rep.getOne(id);
+	}
 }
 	
